@@ -4,13 +4,15 @@
         "response": {
 
         },
-        "status": 200
+        "status": 200,
+        "method": "post"
     },
     {
-        "url": "/vechicles/add",
+        "url": "/vechicles/get",
         "response": {
             
         },
-        "status": 200
+        "status": 200,
+        "method": "get"
     }
 ]

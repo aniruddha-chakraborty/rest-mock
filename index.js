@@ -4,14 +4,25 @@ var app = express();
 var file_name = 'api.json'
 var contents = fs.readFileSync(file_name, 'utf8');
 
-function start(fileurl,port = 5000) {
-    contents = fs.readFileSync(fileurl, 'utf8');
-    JSON.parse(contents).forEach(element => {
-        app.post(element.url, (req, res) => res.status(element.status).json(element.response));        
+function start(contents = [
+    {
+        "url": "/test",
+        "response": {
+
+        },
+        "status": 200,
+        "method": "post"
+    }
+],port = 5000) {
+
+    contents.forEach(element => {
+        app[element.method](element.url, (req, res) => res.status(element.status).json(element.response));        
     });
 
     app.listen(port,(error) => {
-        console.log(error);
+        if (!error) {
+			console.log("The Mighty test server started");
+        }
     });
 }
 

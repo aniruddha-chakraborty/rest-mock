@@ -2,8 +2,8 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "name": "rest-mock",
-  "version": "1.0.0",
+  "name": "resmock",
+  "version": "1.0.2",
   "description": "A ready to go rest api mocker",
   "main": "index.js",
   "devDependencies": {},
