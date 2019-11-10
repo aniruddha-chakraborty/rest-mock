@@ -1,8 +1,6 @@
 var express = require('express');
 var fs = require('fs');
 var app = express();
-var file_name = 'api.json'
-var contents = fs.readFileSync(file_name, 'utf8');
 
 function start(contents = [
     {
@@ -11,12 +9,29 @@ function start(contents = [
 
         },
         "status": 200,
-        "method": "post"
+        "method": "get"
     }
 ],port = 5000) {
 
     contents.forEach(element => {
-        app[element.method](element.url, (req, res) => res.status(element.status).json(element.response));        
+
+        switch(element.method) {
+            case 'post':
+                app.post(element.url, (req, res) => res.status(element.status).json(element.response));
+                break;
+            case 'get':
+                app.get(element.url, (req, res) => res.status(element.status).json(element.response));
+                break;
+            case 'patch':
+                app.patch(element.url, (req, res) => res.status(element.status).json(element.response));
+                break;
+            case 'delete':
+                app.delete(element.url, (req, res) => res.status(element.status).json(element.response));
+                break;
+            default:
+                app.get(element.url, (req, res) => res.status(element.status).json(element.response));
+                break
+        }
     });
 
     app.listen(port,(error) => {
