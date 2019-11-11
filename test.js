@@ -1,3 +1,12 @@
 var test = require('./index.js');
 
-test();
+test([
+    {
+        "url": "/test",
+        "response": {
+
+        },
+        "status": 200,
+        "method": "get"
+    }
+]);
