@@ -3,7 +3,7 @@
     "express": "^4.17.1"
   },
   "name": "resmock",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A ready to go rest api mocker",
   "main": "index.js",
   "devDependencies": {},
